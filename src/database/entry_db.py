@@ -22,7 +22,7 @@ def add_entry(entry):
     return entry
 
 def edit_entry(entry, entry_id):
-    ''' Edits a entry in the database'''
+    ''' Edits a entry in the database '''
     query = {'_id': int(entry_id)}
     try:
         new_entry = _mongo.entries.replace_one(query, entry)
