@@ -4,6 +4,7 @@
 **/__pycache__
 **app.log
 .env
+.env-list
 **/.vscode
 pyvenv.cfg
 /htmlcov
