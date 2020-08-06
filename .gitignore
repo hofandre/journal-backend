@@ -1,0 +1,10 @@
+/Scripts
+/Lib
+/Include
+**/__pycache__
+**app.log
+.env
+**/.vscode
+pyvenv.cfg
+/htmlcov
+.coverage
