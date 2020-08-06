@@ -16,6 +16,7 @@ def get_entry_id():
                                            return_document=pymongo.ReturnDocument.AFTER)['count']
 
 def add_entry(entry):
+    ''' Adds a new entry in the database '''
     entry['_id'] = get_entry_id()
     _mongo.entries.insert_one(entry)
     return entry
