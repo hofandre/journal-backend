@@ -22,13 +22,10 @@ def add_entry(entry):
 
 def edit_entry(entry, entry_id):
     query = {'_id': int(entry_id)}
-    _log.debug(query)
-    _log.debug(entry)
     try:
         new_entry = _mongo.entries.replace_one(query, entry)
     except Exception as err:
         _log.exception(err)
-    
     return new_entry
 
 if __name__ == '__main__':
