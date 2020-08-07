@@ -4,13 +4,18 @@ from src.logger.logger import get_logger
 
 _log = get_logger(__name__)
 
-_mongo = pymongo.MongoClient(os.environ.get('MONGO_URI_POC')).simple
+try:
+    _log.debug(os.environ.get('MONGO_URI_POC'))
+    _mongo = pymongo.MongoClient(os.environ.get('MONGO_URI_POC')).simple
+except:
+    _log.exception('Failed to connect to Mongo')
+    raise
 _log.info(_mongo)
 
 def get_entries():
-    lst = _mongo.entries.find({'title': {'$exists': True}})
-    _log.debug(list(lst))
-    return list(lst)
+    _log.debug('in get_entries')
+    lst = list(_mongo.entries.find({'title': {'$exists': True}}))
+    return lst
 
 def get_entry_id():
     return  _mongo.entries.find_one_and_update({'_id': 'UNIQUE_COUNT'},
