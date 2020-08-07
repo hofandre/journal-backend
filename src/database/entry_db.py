@@ -5,9 +5,11 @@ from src.logger.logger import get_logger
 _log = get_logger(__name__)
 
 _mongo = pymongo.MongoClient(os.environ.get('MONGO_URI_POC')).simple
+_log.info(_mongo)
 
 def get_entries():
     lst = _mongo.entries.find({'title': {'$exists': True}})
+    _log.debug(lst)
     return list(lst)
 
 def get_entry_id():
