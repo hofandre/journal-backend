@@ -9,7 +9,7 @@ _log.info(_mongo)
 
 def get_entries():
     lst = _mongo.entries.find({'title': {'$exists': True}})
-    _log.debug(lst)
+    _log.debug(list(lst))
     return list(lst)
 
 def get_entry_id():

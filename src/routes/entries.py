@@ -16,6 +16,7 @@ class EntriesRoute(Resource):
         _log.debug('In the get fn')
         try:
             entry_list = db.get_entries()
+            _log.debug(entry_list)
         except:
             return 'Database Error', 500
         else:
